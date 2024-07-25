@@ -1,0 +1,104 @@
+#Find the range of cholesterol levels among patients (minimum, maximum).
+
+SELECT 
+    MIN(chol) AS min_cholesterol,
+    MAX(chol) AS max_cholesterol
+FROM 
+    HeartDiseasePredictionDataset;
+    
+#Determine the age range (youngest and oldest) for male and female patients separately.
+
+SELECT 
+    gender,
+    MIN(age) AS min_age,
+    MAX(age) AS max_age
+FROM 
+    HeartDiseasePredictionDataset
+WHERE 
+    gender = 0;
+    
+#Investigate the distribution of the target variable (presence or absence of heart disease) within different age groups (e.g., 20-30, 30-40, etc.).
+
+SELECT 
+    CASE
+        WHEN age BETWEEN 20 AND 30 THEN '20-30'
+        WHEN age BETWEEN 31 AND 40 THEN '31-40'
+        WHEN age BETWEEN 41 AND 50 THEN '41-50'
+        WHEN age BETWEEN 51 AND 60 THEN '51-60'
+        WHEN age BETWEEN 61 AND 70 THEN '61-70'
+        ELSE 'Above 70'
+    END AS age_group,
+    SUM(CASE WHEN num = 1 THEN 1 ELSE 0 END) AS heart_disease_count,
+    SUM(CASE WHEN num = 0 THEN 1 ELSE 0 END) AS no_heart_disease_count
+FROM 
+    HeartDiseasePredictionDataset
+GROUP BY 
+    age_group
+ORDER BY 
+    age_group;
+
+#Find the maximum heart rate achieved during exercise for different age groups (e.g., 30-40, 40-50, etc.).
+
+SELECT 
+    CASE
+        WHEN age BETWEEN 20 AND 30 THEN '20-30'
+        WHEN age BETWEEN 31 AND 40 THEN '31-40'
+        WHEN age BETWEEN 41 AND 50 THEN '41-50'
+        WHEN age BETWEEN 51 AND 60 THEN '51-60'
+        WHEN age BETWEEN 61 AND 70 THEN '61-70'
+        ELSE 'Above 70'
+    END AS age_group,
+    MAX(thalach) AS max_heart_rate
+FROM 
+    HeartDiseasePredictionDataset
+GROUP BY 
+    age_group
+ORDER BY 
+    age_group;
+    
+#Calculate the percentage of patients with fasting blood sugar greater than 120 mg/dl.
+
+SELECT 
+    (COUNT(CASE WHEN fbs = 1 THEN 1 END) * 100.0 / COUNT(*)) AS percentage_high_fbs
+FROM 
+    HeartDiseasePredictionDataset;
+    
+#Find the ratio of patients with abnormal resting electrocardiographic results to those with normal results.
+
+SELECT 
+    SUM(CASE WHEN restecg > 0 THEN 1 ELSE 0 END) AS abnormal_results_count,
+    SUM(CASE WHEN restecg = 0 THEN 1 ELSE 0 END) AS normal_results_count,
+    (SUM(CASE WHEN restecg > 0 THEN 1 ELSE 0 END) * 1.0 / SUM(CASE WHEN restecg = 0 THEN 1 ELSE 0 END)) AS abnormal_to_normal_ratio
+FROM 
+    HeartDiseasePredictionDataset;
+    
+Count the number of patients with reversible thalassemia detected by thallium stress testing.
+
+SELECT 
+    COUNT(*) AS reversible_thalassemia_count
+FROM 
+    HeartDiseasePredictionDataset
+WHERE 
+    thal = 7;
+
+#Calculate the average age of patients who experienced chest pain during diagnosis.
+
+SELECT 
+    AVG(age) AS average_age
+FROM 
+    HeartDiseasePredictionDataset
+WHERE 
+    cp > 0;
+
+#Investigate the distribution of patients based on the number of major vessels colored by fluoroscopy (0-3).
+
+SELECT 
+    ca,
+    COUNT(*) AS vessel_count
+FROM 
+    HeartDiseasePredictionDataset
+GROUP BY 
+    ca
+ORDER BY 
+    ca;
+ 
