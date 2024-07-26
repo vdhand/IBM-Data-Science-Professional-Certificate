@@ -1,0 +1,12 @@
+Problem: Patient Readmissions
+Question: Can we automatically classify the readmission of a patient for a given condition?
+
+1. Analytic Approach: Select a Predicitive Model (example: Decision Tree Classicfication)
+
+2. Data Requirements: Define the content, format, and representations of the required data for the chosen model.
+
+3. Data Collection: Extract data from various sources, and then merge it. (example: demographical, clinical, insurancial, provider and claim information)
+
+4. Data Understanding and Preparation: Checking for missing or mislabelled data, standardizizing data, creating new attributes, dropping uneeded attributes, running descriptive statistics, checking variable relationships and understanding data distibution (example: histograms)
+
+5. Modeling and Evaluation: Use training set to train the first decision tree classification model. Evaluate and adjust parameters. 
