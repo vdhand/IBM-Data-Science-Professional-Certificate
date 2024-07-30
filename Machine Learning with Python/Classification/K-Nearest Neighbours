@@ -1,0 +1,19 @@
+The K-Nearest Neighbors algorithm is a classification algorithm that takes a bunch of labeled points and uses them to learn how to label other points.
+
+This algorithm classifies cases based on their similarity to other cases. In K-Nearest Neighbors, data points that are near each other are said to be neighbors. K-Nearest Neighbors is based on this paradigm. Similar cases with the same class labels are near each other. Thus, the distance between two cases is a measure of their dissimilarity. There are different ways to calculate the similarity or conversely, the distance or dissimilarity of two data points. For example, this can be done using Euclidean distance. Now, let's see how the K-Nearest Neighbors algorithm actually works. 
+
+One, pick a value for K. Two, calculate the distance from the new case hold out from each of the cases in the dataset. Three, search for the K-observations in the training data that are nearest to the measurements of the unknown data point. And four, predict the response of the unknown data point using the most popular response value from the K-Nearest Neighbors.
+
+First, how to select the correct K and second, how to compute the similarity between cases
+
+A low value of K causes a highly complex model as well, which might result in overfitting of the model.
+
+It means the prediction process is not generalized enough to be used for out-of-sample cases. Out-of-sample data is data that is outside of the data set used to train the model. In other words, it cannot be trusted to be used for prediction of unknown samples.
+ 
+if we choose a very high value of K such as K equals 20, then the model becomes overly generalized.
+
+general solution is to reserve a part of your data for testing the accuracy of the model. Once you've done so, choose K equals one and then use the training part for modeling and calculate the accuracy of prediction using all samples in your test set. Repeat this process increasing the K and see which K is best for your model.
+
+Nearest neighbors analysis can also be used to compute values for a continuous target. In this situation, the average or median target value of the nearest neighbors is used to obtain the predicted value for the new case.
+
+

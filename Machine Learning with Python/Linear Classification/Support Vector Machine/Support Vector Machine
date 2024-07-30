@@ -1,0 +1,64 @@
+A Support Vector Machine is a supervised algorithm that can classify cases by finding a separator
+
+first mapping data to a high dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. 
+
+Then, a separator is estimated for the data. 
+
+The data should be transformed in such a way that a separator could be drawn as a hyperplane.
+
+The two categories can be separated with a curve but not a line. That is, it represents a linearly non separable data set, which is the case for most real world data sets. We can transfer this data to a higher-dimensional space, for example, mapping it to a three-dimensional space. After the transformation, the boundary between the two categories can be defined by a hyperplane. 
+
+This plane can be used to classify new or unknown cases. Therefore, the SVM algorithm outputs an optimal hyperplane that categorizes new examples
+
+First, how do we transfer data in such a way that a separator could be drawn as a hyperplane? 
+And two, how can we find the best or optimized hyperplane separator after transformation?
+
+example, consider the following figure, which shows the distribution of a small set of cells only based on their unit size and clump thickness. As you can see, the data points fall into two different categories. It represents a linearly non separable data set. The two categories can be separated with a curve but not a line. That is, it represents a linearly non separable data set, which is the case for most real world data sets. We can transfer this data to a higher-dimensional space, for example, mapping it to a three-dimensional space. After the transformation, the boundary between the two categories can be defined by a hyperplane. As we are now in three-dimensional space, the separator is shown as a plane. This plane can be used to classify new or unknown cases. Therefore, the SVM algorithm outputs an optimal hyperplane that categorizes new examples.
+
+two challenging questions to consider. 
+
+First, how do we transfer data in such a way that a separator could be drawn as a hyperplane?
+two, how can we find the best or optimized hyperplane separator after transformation?
+
+first look at transforming data to see how it works
+
+[SEE Data Transformation Picture]
+
+Notice that as we are in a two-dimensional space, the hyperplane is a line dividing a plane into two parts where each class lays on either side. Now we can use this line to classify new cases. Basically, mapping data into a higher-dimensional space is called, kernelling.
+
+The mathematical function used for the transformation is known as the kernel function, and can be of different types, such as linear, polynomial, Radial Basis Function,or RBF, and sigmoid. Each of these functions has its own characteristics, its pros and cons, and its equation.
+
+example, you can increase the dimension of data by mapping x into a new space using a function with outputs x and x squared. Now the data is linearly separable, right?
+
+there's no easy way of knowing which function performs best with any given dataset, we usually choose different functions in turn and compare the results
+
+how do we find the right or optimized separator after transformation?
+
+SVMs are based on the idea of finding a hyperplane that best divides a data set into two classes as shown here.
+
+[SEE Using SVM to find the hyperplane Picture]
+
+One reasonable choice as the best hyperplane is the one that represents the largest separation or margin between the two classes. So the goal is to choose a hyperplane with as big a margin as possible.
+
+We tried to find the hyperplane in such a way that it has the maximum distance to support vectors
+
+note that the hyperplane and boundary decision lines have their own equations. So finding the optimized hyperplane can be formalized using an equation
+
+the output of the algorithm is the values w and b for the line. You can make classifications using this estimated line. It is enough to plug in input values into the line equation. Then, you can calculate whether an unknown point is above or below the line. If the equation returns a value greater than 0, then the point belongs to the first class which is above the line, and vice-versa
+
+hyperplane is learned from training data using an optimization procedure that maximizes the margin
+
+his optimization problem can also be solved by gradient descent
+ 
+two main advantages of support vector machines are that they're accurate in high-dimensional spaces. And they use a subset of training points in the decision function called, support vectors, so it's also memory efficient
+
+disadvantages of Support Vector Machines include the fact that the algorithm is prone for over-fitting if the number of features is much greater than the number of samples. Also, SVMs do not directly provide probability estimates, which are desirable in most classification problems
+
+SVMs are not very efficient computationally if your dataset is very big, such as when you have more than 1,000 rows
+
+SVM is good for image analysis tasks, such as image classification and hand written digit recognition. Also, SVM is very effective in text mining tasks, particularly due to its effectiveness in dealing with high-dimensional data.
+
+SVM can also be used for other types of machine learning problems, such as regression, outlier detection and clustering
+
+
+

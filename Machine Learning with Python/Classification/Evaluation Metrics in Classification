@@ -1,0 +1,19 @@
+Evaluation metrics explain the performance of a model
+
+Basically, we compare the actual values in the test set with the values predicted by the model to calculate the accuracy of the model.
+
+Jaccard similarity coefficient. Let's say y shows the true labels of the churn dataset, and y-hat shows the predicted values by our classifier. Then we can define Jaccard as the size of the intersection divided by the size of the union of two label sets. 
+
+confusion matrix. For example, let's assume that our test set has only 40 rows. This matrix shows the corrected and wrong predictions in comparison with the actual labels. Each confusion matrix row shows the actual true labels in the test set, and the columns show the predicted labels by classifier. 
+ 
+count of true positives, false negatives, true negatives, and false positives. Based on the count of each section, we can calculate the precision and recall of each label. Precision is a measure of the accuracy provided that a class label has been predicted. It is defined by precision equals true positive divided by true positive plus false positive. Recall is the true positive rate. It is defined as recall equals true positive divided by true positive plus false negative. We can calculate the precision and recall of each class. 
+
+Now we're in the position to calculate the F1 scores for each label based on the precision and recall of that label.
+
+The F1 score is the harmonic average of the precision and recall, where an F1 score reaches its best value at one, which represents perfect precision and recall, and its worst at zero. 
+
+Jaccard and F1 score can be used for multiclass classifiers as well
+
+[See F1-score.png]
+
+Sometimes the output of a classifier is the probability of a class label instead of the label. For example, in logistic regression, the output can be the probability of customer churn, ie yes, or equals to one. This probability is a value between zero and one. Logarithmic loss, also known as log loss, measures the performance of a classifier where the predicted output is a probability value between zero and one.

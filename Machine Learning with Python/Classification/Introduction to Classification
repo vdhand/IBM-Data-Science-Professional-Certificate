@@ -1,0 +1,15 @@
+supervised learning approach which can be thought of as a means of categorizing or classifying some unknown items into a discrete set of classes
+
+Classification attempts to learn the relationship between a set of feature variables and a target variable of interest
+
+The target attribute in classification is a categorical variable with discrete values
+
+Given a set of training data points along with the target labels, classification determines the class label for an unlabeled test case. 
+
+Data classification has several applications in a wide variety of industries. 
+
+Essentially, many problems can be expressed as associations between feature and target variables, especially when labelled data is available. 
+
+This provides a broad range of applicability for classification
+
+[See Classification Algorithmns.png]

@@ -1,0 +1,51 @@
+Used for classification
+
+Logistic regression is a statistical and machine learning technique for classifying records of a dataset based on the values of the input fields
+
+in logistic regression, we predict a variable which is binary such as yes/no, true/false, successful or not successful,
+
+In logistic regression independent variables should be continuous. If categorical, they should be dummy or indicator coded
+This means we have to transform them to some continuous value.
+
+note that logistic regression can be used for both binary classification and multi-class classification
+
+not only do we predict the class of each case, we also measure the probability of a case belonging to a specific class
+
+
+Here are four situations in which logistic regression is a good candidate
+
+1. when the target field in your data is categorical or specifically is binary.
+
+2. you need the probability of your prediction. For example, if you want to know what the probability is of a customer buying a product. Logistic regression returns a probability score between zero and one for a given sample of data. In fact, logistic regression predicts the probability of that sample and we map the cases to a discrete class based on that probability
+
+3. if your data is linearly separable. The decision boundary of logistic regression is a line or a plane or a hyper plane. A classifier will classify all the points on one side of the decision boundary as belonging to one class and all those on the other side as belonging to the other class. For example, if we have just two features and are not applying any polynomial processing we can obtain an inequality like Theta zero plus Theta 1x1 plus theta 2x2 is greater than zero, which is a half-plane easily plottable. Please note that in using logistic regression, we can also achieve a complex decision boundary using polynomial processing as well, which is out of scope here. You'll get more insight from decision boundaries when you understand how logistic regression works. 
+
+4. you need to understand the impact of a feature. You can select the best features based on the statistical significance of the logistic regression model coefficients or parameters. That is, after finding the optimum parameters, a feature X with the weight Theta one close to zero has a smaller effect on the prediction than features with large absolute values of Theta one. Indeed, it allows us to understand the impact an independent variable has on the dependent variable while controlling other independent variables.
+
+Logistic regression vs Linear regression
+
+goal of logistic regression is to build a model to predict the class of each customer and also the probability of each sample belonging to a class.
+
+our job is to train the model to set its parameter values in such a way that our model is a good estimate of probability(y)=1 given x. In fact, this is what a good classifier model built by logistic regression is supposed to do for us. Also, it should be a good estimate of probability(y) belongs to class 0 given x that can be shown as 1-sigmoid of Theta^T x
+
+[See Logistic Regression Training Process Picture]
+
+The main objective of training and logistic regression is to change the parameters of the model, so as to be the best estimation of the labels of the samples in the dataset.
+
+first we have to look at the cost function, and see what the relation is between the cost function and the parameters theta. So, we should formulate the cost function. Then, using the derivative of the cost function we can find how to change the parameters to reduce the cost or rather the error
+
+[See Cost Function Picture]
+
+[See Logistic Rgression Cost Function Picture]
+
+[See Plotting Cost Function Of Model Picture]
+
+[See Gradient Descent Picture]
+
+we can simply say, gradient descent is like taking steps in the current direction of the slope, and the learning rate is like the length of the step you take. So, these would be our new parameters.
+
+Summary
+
+[See Training Algorithmn Recap Picture]
+
+Step one, we initialize the parameters with random values. Step two, we feed the cost function with the training set and calculate the cost. We expect a high error rate as the parameters are set randomly. Step three, we calculate the gradient of the cost function keeping in mind that we have to use a partial derivative. So, to calculate the gradient vector we need all the training data to feed the equation for each parameter. Of course, this is an expensive part of the algorithm, but there are some solutions for this. Step four, we update the weights with new parameter values. Step five, here we go back to step two and feed the cost function again, which has new parameters. As was explained earlier, we expect less error as we are going down the error surface. We continue this loop until we reach a short value of cost or some limited number of iterations. Step six, the parameter should be roughly found after some iterations. This means the model is ready and we can use it to predict the probability of a customer staying or leaving.

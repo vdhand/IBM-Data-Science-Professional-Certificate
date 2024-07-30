@@ -1,0 +1,39 @@
+Decision trees are built by splitting the training set into distinct nodes, where one node contains all of or most of one category of the data.
+ 
+decision trees are about testing an attribute and branching the cases based on the result of the test. Each internal node corresponds to a test, and each branch corresponds to a result of the test, and each leaf node assigns a patient to a class. 
+
+A decision tree can be constructed by considering the attributes one by one.
+
+First, choose an attribute from our dataset. Calculate the significance of the attribute in the splitting of the data.
+
+Calculate the significance of the attribute in the splitting of the data.
+
+Next, split the data based on the value of the best attribute, then go to each branch and repeat it for the rest of the attributes. After building this tree, you can use it to predict the class of unknown cases
+ 
+What is important in making a decision tree, is to determine which attribute is the best or more predictive to split data based on the feature. 
+
+in other words it's more predictive than the other attributes. Indeed, predictiveness is based on decrease in impurity of nodes. We're looking for the best feature to decrease the impurity of patients in the leaves, after splitting them up based on that feature.
+
+A node in the tree is considered pure if in 100 percent of the cases, the nodes fall into a specific category of the target field
+
+In fact, the method uses recursive partitioning to split the training records into segments by minimizing the impurity at each step. Impurity of nodes is calculated by entropy of data in the node.
+
+Entropy is the amount of information disorder or the amount of randomness in the data. The entropy in the node depends on how much random data is in that node and is calculated for each node. In decision trees, we're looking for trees that have the smallest entropy in their nodes. The entropy is used to calculate the homogeneity of the samples in that node. If the samples are completely homogeneous, the entropy is zero and if the samples are equally divided it has an entropy of one.
+
+You can easily calculate the entropy of a node using the frequency table of the attribute through the entropy formula 
+
+[See Entropy.png]
+
+what is information gain? Information gain is the information that can increase the level of certainty after splitting. 
+
+It is the entropy of a tree before the split minus the weighted entropy after the split by an attribute. We can think of information gain and entropy as opposites. As entropy or the amount of randomness decreases, the information gain or amount of certainty increases and vice versa. So, constructing a decision tree is all about finding attributes that return the highest information gain.
+
+We can think of information gain and entropy as opposites. As entropy or the amount of randomness decreases, the information gain or amount of certainty increases and vice versa. So, constructing a decision tree is all about finding attributes that return the highest information gain. 
+
+we will consider the entropy over the distribution of samples falling under each leaf node and we'll take a weighted average of that entropy weighted by the proportion of samples falling under that leave.
+
+Now, the question is, which attribute is more suitable? Well, as mentioned, the tree with the higher information gained after splitting
+
+repeat the process for each branch and test each of the other attributes to continue to reach the most pure leaves. This is the way you build a decision tree.
+
+
